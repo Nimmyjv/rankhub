@@ -5,14 +5,15 @@ class AcceptsController < ApplicationController
   end
   
   def mail
-    @invite = Invite.new(invite_params)
-   
+    @invite = Invite.new(invite_params) 
+    @id = Invite.where(:email => invite_params[:email]).select(:id)
+    # @uid = @id. 
     @user_email = @email
-
     hash = Digest::SHA512.hexdigest("#{@user_email}")
-      @str=(0...4).map { ('a'..'z').to_a[rand(26)] }.join
+    @str=(0...4).map { ('a'..'z').to_a[rand(26)] }.join
+    if UserMailer.invite_email(@invite,@str,hash).deliver_now
+      Invite.where(id: @id).update_all(accept: "false")
 
-     if UserMailer.invite_email(@invite,@str,hash).deliver_now
       @accept = Statistic.pluck(:accepted_requests)
       @accept = @accept.map!{ |s| s.to_i + 1 }
       if Statistic.exists?

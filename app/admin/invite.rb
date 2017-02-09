@@ -5,8 +5,8 @@ ActiveAdmin.register Invite do
         id_column
         column :name
         column :email
-        actions  do |user|
-          link_to 'Invite',  mail_accepts_path(:invite => { :name => user.name ,:email => user.email}),  method: :post ,:id => 'invite'
+        actions  do |invitation|
+        link_to 'Invite',  mail_accepts_path(:invite => { :name =>  invitation.name ,:email => invitation.email}),  method: :post if invitation.accept?
         end
   end
 
