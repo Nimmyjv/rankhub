@@ -1,13 +1,14 @@
  <%= render partial: 'layouts/login_nav' %>
 <div class="container">
-<div class="row" style="padding-top:80px;padding-left:10%">
+<div class="row" style="padding-top:80px;padding-left:30%">
+ <%= devise_error_messages! %>
 
 
-
-    <div class="col-md-4 col-md-offset-4">
+    <div class="col-md-4 col-md-offset-2">
       <h1 style="padding-left:15%">Log In</h1>
+
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { method: :post }) do |f| %>
-        <%= devise_error_messages! %>
+        
 
         <div class="field">
             <%= f.label :email %><br/>

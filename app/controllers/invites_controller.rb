@@ -14,7 +14,13 @@ class InvitesController < ApplicationController
   def create
     @invite = Invite.new(invite_params)   
     if @invite.save  
-    
+      @invites_count=Invite.count('id')
+      if Statistic.exists?
+        Statistic.update(recieved_requests: @invites_count) 
+        
+      else
+        Statistic.create(recieved_requests: @invites_count)
+      end
       flash[:note]="Thank You for requesting an invitation to use RankHub. We would shortly send you an invitation code to register at RankHub"
 
     
@@ -23,6 +29,7 @@ class InvitesController < ApplicationController
       
     end
   end
+  
   def mail
     @user = Invite.new(invite_params)
     @user_email = @email

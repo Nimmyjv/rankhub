@@ -1,4 +1,5 @@
 $(document).ready(function() {
+   
   
   var slider = ["ALERT","SMART","COMPETITIVE"];
   $("#animate").addClass('animated infinite fadeInDown');
@@ -104,5 +105,8 @@ for (i = 0; i < acc.length; i++) {
     }
 });
 
+$( "#invite" ).click(function() {
+  $("#invite").attr("disabled", true);
+})
 
-
+  
