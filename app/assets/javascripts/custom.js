@@ -1,6 +1,6 @@
 $(document).ready(function() {
    
-  
+
   var slider = ["ALERT","SMART","COMPETITIVE"];
   $("#animate").addClass('animated infinite fadeInDown');
   $("#animate").text(slider[0]);

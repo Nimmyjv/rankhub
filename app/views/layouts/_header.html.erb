@@ -9,10 +9,16 @@
                 <% if user_signed_in? %>
                 <nav>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><%= link_to current_user.name, root_path, class:'load' %></li>
-                        <li><%= link_to 'Profile', edit_user_registration_path %></li>
-                        <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-                    </ul>
+                       <div class="dropdown" style="margin-top:4%">
+    <li data-toggle="dropdown"><%= link_to current_user.email, root_path, class:'load' ,style:"text-decoration:none;color:white;font-weight:700;font-size:22px"%>
+    </li>
+    <ul class="dropdown-menu">
+       <li><%= link_to 'Account Management', edit_user_registration_path ,style:"font-size:22px; font-family:  Palatino, serif"%></li>
+                        <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete ,style:"font-size:22px; font-family:  Palatino, serif"%></li>
+    </ul>
+  </div>
+                        
+        </ul>
                 </nav>
             <% else %>
                 <nav>

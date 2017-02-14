@@ -2,7 +2,7 @@ class Website < ApplicationRecord
   belongs_to :user
   belongs_to :collections
   has_many  :alexaranks, dependent: :destroy
-  validates :url, format: { with: URI.regexp }, presence: true
+  validates :url, presence: true
   validates :user_id, presence: true
   validates_uniqueness_of :url, :scope => :user_id
   
