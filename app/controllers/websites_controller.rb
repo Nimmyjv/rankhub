@@ -2,13 +2,22 @@ class WebsitesController < ApplicationController
 
   def create
     @website = current_user.websites.build(website_params)
-    @sites_count=Website.count('id')
-    if Statistic.exists?
-      Statistic.update(sites: @sites_count) 
-    else
-      Statistic.create(sites: @sites_count)
+    if @website.save
+      @sites_count=Website.count('id')
+      @each_user_sites=current_user.websites.count
+
+      if User.exists?
+        current_user.update(sites_number: @each_user_sites)
+      else
+        current_user.create(sites_number: @each_user_sites)
+      end
+      if Statistic.exists?
+        Statistic.update(sites: @sites_count) 
+      else
+        Statistic.create(sites: @sites_count)
+      end
     end
-    FetchRankJob.perform_later(@website) if @website.save
+    FetchRankJob.perform_later(@website) 
     redirect_to root_url
   end
 

@@ -13,16 +13,21 @@ ActiveAdmin.register User do
         id_column
         column :name
         column :email
+        column :lists_number
+        column :sites_number
         column :created_at
         column :sign_in_count
         actions
     end
-    permit_params :name, :email, :password, :password_confirmation
+    permit_params :name, :email, :lists_number, :sites_number, :sites ,:password, :password_confirmation
 
     form do |f|
         f.inputs 'User' do
             f.input :name
             f.input :email
+            f.input :lists_number
+            f.input :sites_number
+            f.input :sites
             f.input :password
             f.input :password_confirmation
         end

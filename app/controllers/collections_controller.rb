@@ -5,6 +5,12 @@ class CollectionsController < ApplicationController
     @collection = current_user.collections.build(collection_params)
     if @collection.save
       @list_count=Collection.count('id')
+      @each_user_lists=current_user.collections.count
+      if User.exists?
+        current_user.update(lists_number: @each_user_lists)
+      else
+        current_user.create(lists_number: @each_user_lists)
+      end
       if Statistic.exists?
         Statistic.update(lists: @list_count) 
       else

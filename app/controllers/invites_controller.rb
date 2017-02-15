@@ -5,7 +5,6 @@ class InvitesController < ApplicationController
   session[:token] = token
   hash=params[:hash]
   session[:hash]=hash
- 
   redirect_to new_user_registration_path
  end
 
@@ -34,7 +33,6 @@ class InvitesController < ApplicationController
     @user = Invite.new(invite_params)
     @user_email = @email
     hash = Digest::SHA512.hexdigest("#{@user_email}")
-
     @str=(0...4).map { ('a'..'z').to_a[rand(26)] }.join
     UserMailer.invite_email(@invite,@str,hash).deliver_now
 

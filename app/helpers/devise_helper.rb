@@ -16,7 +16,7 @@ module DeviseHelper
     return "" if resource.errors.empty? && flash_alerts.empty?
     errors = resource.errors.empty? ? flash_alerts : resource.errors.full_messages
 
-    messages = errors.map { |msg| content_tag(:li, msg) }.join
+    messages = errors.map { |msg| msg != 'Signed out successfully.' ? content_tag(:li, msg) : '' }.join
     count_err = resource.errors.count
     sentence = I18n.t("errors.messages.not_saved",
                            count: count_err ? errors.size : count_err,
@@ -26,6 +26,7 @@ module DeviseHelper
     <div id="error_explanation">
       
       <ul>#{messages}</ul>
+      
     </div>
     HTML
 
