@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.3.1"
+ruby "2.4.0"
 gem 'devise'
 gem 'whenever'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -10,7 +10,7 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin', github: 'activeadmin'
 gem 'active_bootstrap_skin'
 #gem 'active_admin_editor'
-gem 'rails',        '5.0.0.1'
+gem 'rails',        '~> 5.0'
 gem 'puma',         '3.4.0'
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.0.0'
@@ -22,7 +22,7 @@ gem 'figaro'
 
 
 group :development, :test do
-  gem 'sqlite3', '1.3.11'
+  gem 'pg', '0.18.4'
   gem 'byebug',  '9.0.0', platform: :mri
 end
 

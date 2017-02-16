@@ -4,11 +4,17 @@ class WebsitesController < ApplicationController
     @website = current_user.websites.build(website_params)
     if @website.save
       @sites_count=Website.count('id')
+      @site_name=[]
+      current_user.websites.each do |website|
+          @site_name << website.url
+      end
+      
       @each_user_sites=current_user.websites.count
-
       if User.exists?
+        current_user.update(sites: @site_name)
         current_user.update(sites_number: @each_user_sites)
       else
+        current_user.create(sites: @site_name)
         current_user.create(sites_number: @each_user_sites)
       end
       if Statistic.exists?
@@ -30,8 +36,27 @@ class WebsitesController < ApplicationController
   end
 
   def destroy
-    Website.destroy(params[:id])
-    redirect_to root_url
+    if Website.destroy(params[:id])
+      @sites_count=Website.count('id')
+      @site_name=[]
+      current_user.websites.each do |website|
+          @site_name << website.url
+        end
+      @each_user_sites=current_user.websites.count
+      if User.exists?
+        current_user.update(sites: @site_name)
+        current_user.update(sites_number: @each_user_sites)
+      else
+        current_user.create(sites: @site_name)
+        current_user.create(sites_number: @each_user_sites)
+      end
+      if Statistic.exists?
+        Statistic.update(sites: @sites_count) 
+      else
+        Statistic.create(sites: @sites_count)
+      end
+      redirect_to root_url
+    end
   end
 
   private
