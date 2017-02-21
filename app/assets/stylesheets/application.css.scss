@@ -779,3 +779,52 @@ div.panel {
     font-size:18px;
     }
 }
+
+
+/* home page navbar responsiveness*/
+
+@media only screen and (max-width: 500px) {
+   #bs-example-navbar-collapse-1{
+    ul{
+
+    li{
+        a{
+     
+      color: black !important;
+      }
+        }
+    }
+
+}
+.home-head{
+    h1{
+       padding-right: 218px !important;
+    }
+}
+.home_text{
+    margin-top: 75px;
+}
+}
+
+@media only screen and (max-width: 767px) {
+    .home-head{
+    h1{
+       padding-right: 410px !important;
+    }
+}
+.home_text{
+    margin-top: 75px;
+}
+}
+
+.display{
+   margin-top: 7px;
+   a{
+         min-width: 180px;
+   }
+
+    input{
+    
+    min-width: 180px;
+}
+}
