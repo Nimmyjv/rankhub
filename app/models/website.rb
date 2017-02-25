@@ -21,4 +21,20 @@ class Website < ApplicationRecord
                           Date.current - 10.days)
                           .order('created_at ASC')
   end
+  
+  # def get_week_start_rank
+  #   self.alexaranks.where("updated_at >= ?", 1.week.ago).first.try(:rank)
+  # end
+  
+  # def get_week_end_rank
+  #   self.alexaranks.where("updated_at >= ?", 1.week.ago).last.try(:rank)
+  # end
+  
+  def get_weekly_status
+    week_start = self.alexaranks.where("updated_at >= ?", 1.week.ago).first.try(:rank)
+    week_end =  self.alexaranks.where("updated_at >= ?", 1.week.ago).last.try(:rank)
+    diffrence = week_end - week_start
+    return week_start, week_end, diffrence
+  end
+  
 end
