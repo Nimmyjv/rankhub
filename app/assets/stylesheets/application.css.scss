@@ -779,3 +779,184 @@ div.panel {
     font-size:18px;
     }
 }
+
+
+/* home page navbar responsiveness*/
+
+@media only screen and (max-width: 700px) {
+   #bs-example-navbar-collapse-1{
+    ul{
+
+    li{
+        a{
+     
+      color: black !important;
+      }
+        }
+    }
+
+}
+.home-head{
+    h1{
+       padding-right: 218px !important;
+    }
+}
+.home_text{
+    margin-top: 75px;
+}
+}
+
+@media only screen and (max-width: 767px) {
+    .home-head{
+    h1{
+       padding-right: 410px !important;
+    }
+}
+.home_text{
+    margin-top: 75px;
+}
+}
+
+.display{
+   margin-top: 7px;
+   a{
+         min-width: 180px;
+   }
+
+    input{
+    
+    min-width: 180px;
+}
+}
+
+.edit-form{
+    margin: 10px;
+   
+}
+.user-edit{
+    margin-top: 100px;
+}
+@media only screen and (max-width: 500px) {
+  .user-edit{
+    margin-top: 150px;
+}  
+}
+@media only screen and (max-width: 767px) {
+    .user-edit{
+    margin-top: 150px;
+}  
+}
+.update-button{
+    input{
+ min-width: 180px;
+}
+a{
+    min-width: 180px;
+}
+}
+
+.home-corner-image{
+
+
+.pic_betas{
+
+    top: -13px;
+    left: -24px;
+    position: fixed;
+    width: auto;
+    z-index: 2000;
+}
+.pic_beta-outer{
+display: inline-block;
+    margin-top: -3px;
+    margin-left: 12px;
+    vertical-align: bottom;
+}
+
+
+.pic_beta-inner{
+        max-width: 615px;
+    vertical-align: bottom;
+}
+
+.beta-image{
+        cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    img{
+        width:90px;
+    }
+}
+}
+@media only screen and (max-width: 700px) {
+.side{
+margin-top: 120px !important;
+}
+}
+@media only screen and (max-width: 900px) {
+.side{
+margin-top: 150px !important;
+}
+}
+
+// @media only screen and (max-width: 1100px ) {
+// .sidenav{
+//     margin-top: 30px;
+// }
+// }
+@media only screen and (max-width: 767px ) {
+.sidenav{
+    margin-top: 80px ;
+}
+}
+@media only screen and (max-width: 700px ) {
+.sidenav{
+    margin-top: 80px;
+}
+}
+@media only screen and (max-width: 650px ) {
+.sidenav{
+    margin-top: 70px;
+}
+}
+@media only screen and (max-width: 500px) {
+
+.sidenav{
+    margin-top: 70px;
+}
+}
+
+/* collections page */
+.sidenav {
+	    height: 100%;
+	    width: 0;
+	    position: fixed;
+	    top: 50px;
+	    left: 0;
+	    background-color: #111;
+	    overflow-x: hidden;
+	    transition: 0.5s;
+	    padding-top: 60px;
+	}
+
+
+	.sidenav a:hover, .offcanvas a:focus{
+	    color: #f1f1f1;
+	}
+
+	.closebtn {
+	    position: absolute;
+	    top: 0;
+	    right: 25px;
+	    font-size: 36px !important;
+	    margin-left: 50px;
+	}
+
+	@media screen and (max-height: 450px) {
+	  .sidenav {padding-top: 15px;}
+	  .sidenav a {font-size: 18px;}
+	}
+  .side{
+    margin-top: 100px;
+  }

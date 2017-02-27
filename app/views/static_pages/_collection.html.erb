@@ -1,4 +1,6 @@
-<div class="modal fade" id="demo1" role="dialog" aria-hidden="true">
+
+
+  <div class="modal fade" id="demo1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -21,13 +23,14 @@
   </div>
 </div>
 
-
-<div class="container">
-<div class="row" style="padding-top:152px;margin-bottom:350px">
+<div class="side">
   
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-   <button class="accordion" style="padding-left:18px;padding-right:18px;padding-bottom:0px;color:#00ffff" data-toggle="collapse" data-toggle="collapse" data-target="#demo">Lists</button>
+  <div class="rows" style="padding-top:52px;margin-bottom:350px;">
+	
+	<div id="mySidenav" class="sidenav">
+    
+	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+	  <button class="accordion" style="padding-left:18px;padding-right:18px;padding-bottom:0px;padding-top:0px;color:#00ffff" data-toggle="collapse" data-toggle="collapse" data-target="#demo">Lists</button>
 
     <div id="demo" class="collapse">
         <% collection_nil = [] %>   
@@ -50,8 +53,7 @@
                  
           </a> 
           <%= link_to "Delete", collection_path(collect.id),
-          data: { confirm: "Are you sure?" }, style: "color: #ffff99
-;padding-left:10%;font-style:italic",method: :delete %> 
+          data: { confirm: "Are you sure?" }, style: "color: #ffff99;padding-left:10%;font-style:italic",method: :delete %> 
          <div id="collapse<%= index+1 %>" class="panel-collapse collapse"><div class="panel-body">
               <div class="row">
                       <%= form_for (@website) do |f| %> 
@@ -74,12 +76,10 @@
           </div>
      <a style="color: #00ffff;text-decoration:none;margin-left:5%;font-size:20px" data-toggle="modal" data-target="#demo1" >Add new list</a>
     </div>
- </div>
- 
-
+	</div>
 <div id="main" style="margin-top:-8%">
   
-  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; View lists</span>
+  <span style="font-size:30px;cursor:pointer;margin-left: 50px;" onclick="openNav()">☰ View lists</span>
 </div>
 <div class="col-md-4"></div>
  <div class="col-md-8" id="graph"></div>
@@ -91,14 +91,9 @@
   </div>
 
 
-<script>
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
+	<script>
+	
+	</script>
+	     
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
-</script>
+
