@@ -25,5 +25,11 @@ class UserMailer < ApplicationMailer
     mail(to: "rankhub@gmail.com", subject: 'RankHub')
     
   end
+  
+  def weekly_report_email(user)
+    @user = user
+    @collections = @user.collections
+    mail(to: @user, subject: 'Rankhub weekly report')
+  end
 
 end
