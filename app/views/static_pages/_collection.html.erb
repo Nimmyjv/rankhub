@@ -15,6 +15,7 @@
               <%= f.hidden_field :user_id, value: current_user.id %>
                 <%= f.submit "Add", class: 'btn btn-success btn-sm btn pull-right'%>
             </div>
+
             <% end %>
         </div>
       </div>
@@ -22,17 +23,20 @@
   </div>
 </div>
 
+
 <div class="side">
+
   <div class="rows sidebar-section">
     <div id="mySidenav" class="sidenav sidebar-list">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <button class="accordion " data-toggle="collapse" data-toggle="collapse" data-target="#demo">Lists</button>
       <div id="demo" class="collapse sidebar-collapse">
+
         <% collection_nil = [] %>
           <% @urls.each do |url| %>
-            <% if url.collection_id.nil? %>
+            <% if url.collection_ids.nil? %>
               <% collection_nil << url.id %>
-                <% end %>
+         <% end %>
                   <% end %>
                     <% if collection_nil.empty? %>
                       <% @collection_names.any? %><br>
@@ -68,11 +72,21 @@
     </div>
     <div id="main">
       <span onclick="openNav()">☰ View lists</span>
+
     </div>
     <div class="col-md-4"></div>
     <div class="col-md-8" id="graph"></div>
   </div>
+
+
+
+	
+	     
+
+
+
   <% else %>
     <%= render 'check' %>
       <% end %>
 </div>
+
