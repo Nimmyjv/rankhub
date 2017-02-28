@@ -1,0 +1,18 @@
+<h1>Hello <%= @user.name %></h1>
+<h3>Weekly status of your doamins</h3>
+<% @collections.each do |list| %>
+  <h4>list.name<h4>
+  <% list.websites.each do |website| %>
+    <h5>website.url<h5>
+    <% week_start_rank, week_end_rank, rank_diffrence = website.get_weekly_status %>
+    <p>Week Start rank : <%= week_start_rank %></p>
+    <p>Week End rank : <%= week_end_rank %></p>
+    <% if rank_diffrence > 0 %>
+        <p>Change: <%= image_tag("up_icon.png", size: "16x10", alt: "Rank gain") %></p>
+        <p><%= rank_diffrence %></p>
+    <% else %>
+        <p>Change: <%= image_tag("down_icon.png", size: "16x10", alt: "Rank loss") %></p>
+        <p><%= rank_diffrence %></p>
+    <% end %>
+  <% end %>
+<% end %>
