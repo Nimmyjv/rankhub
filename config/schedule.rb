@@ -21,5 +21,5 @@
 
 
 every :monday, :at => '12pm' do # Use any day of the week or :weekend, :weekday
-  rake 'weekly:init'
+  WeeklyReportJob.perform_async
 end
