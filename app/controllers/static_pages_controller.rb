@@ -6,6 +6,8 @@ class StaticPagesController < ApplicationController
       end
       @website = Website.new
       @urls = current_user.websites
+      logger.info "In static controller page"
+      logger.info "#{@urls.inspect}"
       @collection = Collection.new
 
       @collection_names = current_user.collections
@@ -22,11 +24,11 @@ class StaticPagesController < ApplicationController
 
   def privacy
   end
-    
-  
+
+
 
   def show
-    web = Website.where(user_id: current_user.id)
+    web = current_user.websites
     @alexa_rank_json = StaticPagesHelper.createJSON(web)
     respond_to do |format|
       format.html

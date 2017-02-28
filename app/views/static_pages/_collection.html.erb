@@ -16,12 +16,13 @@
               <%= f.hidden_field :user_id, value: current_user.id %>
               <%= f.submit "Add", class: 'btn btn-success btn-sm btn pull-right'%>
             </div>
-          <% end %> 
-        </div> 
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <div class="side">
   
@@ -32,54 +33,60 @@
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
 	  <button class="accordion" style="padding-left:18px;padding-right:18px;padding-bottom:0px;padding-top:0px;color:#00ffff" data-toggle="collapse" data-toggle="collapse" data-target="#demo">Lists</button>
 
+
     <div id="demo" class="collapse">
-        <% collection_nil = [] %>   
+        <% collection_nil = [] %>
           <% @urls.each do |url| %>
-            <% if url.collection_id.nil? %>
+            <% if url.collection_ids.nil? %>
               <% collection_nil << url.id %>
             <% end %>
           <% end %>
         <% if collection_nil.empty? %>
-                               
-          <% @collection_names.any? %><br>  
-               
+
+          <% @collection_names.any? %><br>
+
           <div class="panel-group" id="accordion">
             <% @collection_names.each_with_index do |collect, index| %>
 
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index+1 %>">
-         
-    
-           <h4 style="color: #ffff99;padding-left:10%"><%= collect.name %></h4>
-                 
-          </a> 
+
+
+           <h4 style="color: #ffff99;padding-left:10%" onclick="myFn()"><%= collect.name %></h4>
+
+          </a>
           <%= link_to "Delete", collection_path(collect.id),
+
           data: { confirm: "Are you sure?" }, style: "color: #ffff99;padding-left:10%;font-style:italic",method: :delete %> 
+
          <div id="collapse<%= index+1 %>" class="panel-collapse collapse"><div class="panel-body">
               <div class="row">
-                      <%= form_for (@website) do |f| %> 
+                      <%= form_for (@website) do |f| %>
                         <div class="col-md-9">
                           <%= f.text_field :url,class:'form-control',placeholder:"Add Domain" %>
                           <%= f.hidden_field :collection_id, value: collect.id%>
+                          <%= f.hidden_field :current_user, value: current_user.id%>
                         </div>
                         <div class="col-md-3">
-                          <%= f.submit "Add", class: 'btn btn-success btn-sm btn pull-right' %> 
+                          <%= f.submit "Add", class: 'btn btn-success btn-sm btn pull-right' %>
                         </div>
                       <% end %>
-                      
-          <%= render partial: "domain", locals: { collect_id: collect.id } %>  
-                    
-                    </div>                
+
+          <%= render partial: "domain", locals: { collect: collect } %>
+
+                    </div>
                   </div>
-               </div> 
-              
+               </div>
+
             <% end %>
           </div>
-     <a style="color: #00ffff;text-decoration:none;margin-left:5%;font-size:20px" data-toggle="modal" data-target="#demo1" >Add new list</a>
+     <a style="color: #00ffff;text-decoration:none;margin-left:5%;font-size:20px;padding-bottom:50%" data-toggle="modal" data-target="#demo1" >Add new list</a>
     </div>
+
 	</div>
 <div id="main" style="margin-top:-8%">
   
   <span style="font-size:30px;cursor:pointer;margin-left: 50px;" onclick="openNav()">☰ View lists</span>
+
 </div>
 <div class="col-md-4"></div>
  <div class="col-md-8" id="graph"></div>
@@ -91,9 +98,7 @@
   </div>
 
 
-	<script>
 	
-	</script>
 	     
 
 
