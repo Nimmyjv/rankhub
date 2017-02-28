@@ -1,15 +1,14 @@
 <div class="row">
-    <div class="col-md-12">
-        <% collect.websites.any? %>
-        <% collect.websites.each do |url| %>
-        
-          <h3 style="padding-left:10%"><%= link_to url.url, url , style:"color:white",:remote => true %> </h3>
-          <%= link_to "Delete", website_path(url.id, collection_id: collect.id),
-                    data: { confirm: "Are you sure?" },
-                    style:"padding-left:10%;color:white;font-style:italic",
 
-                       method: :delete %><br>
-        
+    <div class="col-md-12 domain-display">       
+        <% @urls.any? %>
+        <% @urls.each do |url| %>
+          <% if url.collection_id == collect_id %>
+          <h3 ><%= link_to url.url, url ,:remote => true %> </h3>     
+          <%= link_to "Delete", website_path(url.id),
+                    data: { confirm: "Are you sure?" },
+                       method: :delete, class: 'domain-delete' %><br>
+
         <% end %>
     </div>
 </div>
