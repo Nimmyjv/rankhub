@@ -895,6 +895,7 @@ margin-top: 150px !important;
 	    overflow-x: hidden;
 	    transition: 0.5s;
 	    padding-top: 60px;
+       
 	}
 	.sidenav a:hover, .offcanvas a:focus{
 	    color: #f1f1f1;
@@ -931,10 +932,12 @@ button.accordion {
             text-decoration:none;
             margin-left:5%;
             font-size:20px;
+            margin-bottom: 100px;
         }
     }
 }
 .sub-list{
+   
     h4{
         color: #ffff99;
         padding-left:10%;
@@ -948,6 +951,7 @@ button.accordion {
 }
 /* domain partial */
 .domain-display{
+    margin-bottom: 20px;
     h3{
         padding-left:10%;
         a{

@@ -9,7 +9,7 @@ class CollectionsController < ApplicationController
        if User.exists?
          current_user.update(list_number: @each_user_lists)
        else
-         current_user.create(lists_number: @each_user_lists)
+         current_user.create(list_number: @each_user_lists)
        end
        if Statistic.exists?
          Statistic.update(lists: @list_count)
