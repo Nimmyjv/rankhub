@@ -1,31 +1,37 @@
- <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background-color:black !important;">
-            <div class="container">
-              <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top collections-login-navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
                 </button>
-                <%= link_to 'RankHub',root_path, class:"navbar-brand page-scroll", style:" font-weight:800;font-size:35px" %>
-            </div>
-                <% if user_signed_in? %>
-                <nav>
-                    <ul class="nav navbar-nav navbar-right">
-                       <div class="dropdown" style="margin-top:4%">
-    <li data-toggle="dropdown"><%= link_to current_user.email, root_path, class:'load' ,style:"text-decoration:none;color:white;font-weight:700;font-size:22px"%>
-    </li>
-    <ul class="dropdown-menu">
-       <li><%= link_to 'Account Management', edit_user_registration_path ,style:"font-size:22px; font-family:  Palatino, serif"%></li>
-                        <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete ,style:"font-size:22px; font-family:  Palatino, serif"%></li>
-    </ul>
-  </div>
-                        
-        </ul>
-                </nav>
+            <%= link_to 'RankHub',root_path, class:"navbar-brand page-scroll collections-navbar-icon" %>
+        </div>
+        <% if user_signed_in? %>
+            <nav>
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="dropdown collections-navbar-right">
+                        <li data-toggle="dropdown">
+                            <%= link_to current_user.email, root_path, class:'load collections-navbar-links' %>
+                        </li>
+                        <ul class="dropdown-menu load collections-navbar-right-links">
+                            <li>
+                                <%= link_to 'Account Management', edit_user_registration_path %>
+                            </li>
+                            <li>
+                                <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+                            </li>
+                        </ul>
+                    </div>
+                </ul>
+            </nav>
             <% else %>
                 <nav>
-                  <ul class="nav navbar-nav navbar-right">
-                      <li><%= link_to 'Log In', new_user_session_path %></li>
-                  </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <%= link_to 'Log In', new_user_session_path %>
+                        </li>
+                    </ul>
                 </nav>
                 <% end %>
-            </div>
-        </nav>
+    </div>
+</nav>

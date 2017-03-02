@@ -77,7 +77,7 @@
 }
 
 .sidenav button {
-    margin-top:15%;
+   // margin-top:15%;
     text-decoration: none;
     font-size: 25px;
     color: white;
@@ -904,7 +904,7 @@ margin-top: 150px !important;
 	    position: absolute;
 	    top: 0;
 	    right: 25px;
-	    font-size: 36px !important;
+	    font-size: 26px !important;
 	    margin-left: 50px;
 	}
 	@media screen and (max-height: 450px) {
@@ -949,6 +949,40 @@ button.accordion {
     }
    
 }
+.show-graph{
+    z-index: -1;
+}
+/* collections navbar */
+
+ .collections-login-navbar{
+background-color:black !important;
+.navbar-header{
+    a:hover{
+ font-weight:800 !important;
+        font-size:35px !important;
+    }
+ .collections-navbar-icon{
+     
+     font-weight:800;font-size:35px;
+}
+}
+.collections-navbar-right{
+margin-top:4%;
+.collections-navbar-links{
+    text-decoration:none;
+    color:white;
+    font-weight:700;
+    font-size:22px;
+}
+.collections-navbar-right-links{
+    a{
+        font-size:22px; 
+        font-family:  Palatino, serif;
+    }
+}
+}
+ }
+
 /* domain partial */
 .domain-display{
     margin-bottom: 20px;
@@ -1050,6 +1084,20 @@ margin-top:15px;
         margin-left: 50px;
     }
 }
+/* Home navbar */
+.home-navbar{
+    .navbar-header{
+        a:hover{
+ font-weight:800 !important;
+        font-size:35px !important;
+    }
+    .home-navbar-icon{
+        
+        font-weight:800;
+        font-size:35px;
+    }
+}
+}
 
 /*Feedback page */
 .feedback-section{
@@ -1088,4 +1136,31 @@ margin-top:15px;
     margin-left:12%;
     margin-top:4%;
     font-style:italic;
+}
+
+/* Footer  */
+.contact-send{
+    margin-right:8%;
+}
+.innerfooter-section{
+    margin-bottom:-10px;
+    text-align:left;
+}
+.contact-modal-field{
+    margin-left:8%;
+    margin-right:8%;
+}
+.home-footer-link{
+    li{
+    a:hover{
+         color: #fcbd20 !important;
+    }
+    }
+}
+/* Inner Footer */
+.innerFoot{
+    background-color:#800000;
+    padding-top:10px;
+    color:white;
+    padding-bottom:10px;
 }
