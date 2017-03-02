@@ -9,7 +9,6 @@ class StaticPagesController < ApplicationController
       logger.info "In static controller page"
       logger.info "#{@urls.inspect}"
       @collection = Collection.new
-
       @collection_names = current_user.collections
       @collect = Collection.new
     end
