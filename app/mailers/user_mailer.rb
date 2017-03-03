@@ -23,7 +23,12 @@ class UserMailer < ApplicationMailer
   def feedback_email(fb)
     @feedback=fb
     mail(to: "rankhub@gmail.com", subject: 'RankHub')
-    
   end
+
+  def weekly_mail(user,data)
+     @user = user.email
+     @d = data
+     mail(to: @user, subject: "Weekly report")
+ end
 
 end
