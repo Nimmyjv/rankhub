@@ -28,7 +28,11 @@ class StaticPagesController < ApplicationController
 
 
   def show
-    web = current_user.websites
+    if params[:collection_id].present?
+      web = current_user.collections.find_by_id(params[:collection_id]).try(:websites)
+    else
+      web = current_user.websites
+    end
     @alexa_rank_json = StaticPagesHelper.createJSON(web)
     respond_to do |format|
       format.html
