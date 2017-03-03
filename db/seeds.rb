@@ -9,7 +9,7 @@ user = User.first
 urls = ['csnipp.com', 'redpanthers.co', 'google.com']
 
 urls.each do |url|
-  user.websites.create!(url: url)
+  user.collections.first.websites.create!(url: url)
 end
 
 Website.all.each do |site|
