@@ -37,7 +37,7 @@
                       <% @collection_names.any? %><br>
                         <div class="panel-group sub-list" id="accordion">
                           <% @collection_names.each_with_index do |collect, index| %>
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index+1 %>" onclick="showListWiseGraph(<%= collect.id %>)">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= index+1 %>" onclick="showListWiseGraph(<%= collect.id %>, <%= index %>)" id="collection<%= index %>">
                               <h4>
                                 <%= collect.name %>
                               </h4>

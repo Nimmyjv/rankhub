@@ -79,7 +79,12 @@ function openNav() {
 	}
 
   
-function showListWiseGraph(id){
+function showListWiseGraph(id, index){
+    var isExpanded = $("#collection" + index).attr("aria-expanded");
+    if(isExpanded === 'true'){
+        return;
+    }
+    
     $.getJSON('/static_pages/show', { collection_id: id}, function(data) {
         render_graph(data);
     })    
