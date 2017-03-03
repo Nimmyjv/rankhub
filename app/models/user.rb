@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable,
          :validatable
   has_many :collections
-  has_many :websites, through: :collections
+  has_many :websites, through: :collections, autosave: :false
   validates_uniqueness_of :token
 end
