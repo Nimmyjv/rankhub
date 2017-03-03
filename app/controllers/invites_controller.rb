@@ -23,15 +23,7 @@ class InvitesController < ApplicationController
    end
 end
   
-def mail
-  @user = Invite.new(invite_params)
-  @user_email = @email
-  hash = Digest::SHA512.hexdigest("#{@user_email}")
-  @str=(0...4).map { ('a'..'z').to_a[rand(26)] }.join
-  UserMailer.invite_email(@invite,@str,hash).deliver_now
-end
-  
-  private
+ private
   def invite_params
     params.require(:invite).permit(:name, :email, :accept)
   end

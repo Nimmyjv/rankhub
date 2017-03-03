@@ -5,7 +5,6 @@ class ContactsController < ApplicationController
     if @contact.save
       UserMailer.contact_email(@contact).deliver_now
       redirect_to root_path
-       flash[:note]="Your message successfully saved"
     end
   end
 

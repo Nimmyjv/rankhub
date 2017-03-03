@@ -13,14 +13,16 @@
       <%= image_tag("http://www.iconsdb.com/icons/preview/orange/minus-4-xxl.png",
       :height=>20, :width=>20, :alt => "image", :style => " padding-left: 10px; position: absolute !important;") %> 
   <%end%>
-  <% if data[:change] > 0 %>
-    <%= image_tag("http://www.iconsdb.com/icons/preview/green/up-circular-xxl.png",
-    :height=>20, :width=>20,  :alt => "image") %>
-    <%= data[:change] %>
-  <% elsif data[:change] < 0 %>
-    <%= image_tag("http://www.iconsdb.com/icons/preview/red/down-circular-xxl.png",
-    :height=>20, :width=>20,  :alt => "image") %>
-    <%= data[:change] %>
+  <% if data[:change] %>
+    <% if data[:change] > 0 %>
+      <%= image_tag("http://www.iconsdb.com/icons/preview/green/up-circular-xxl.png",
+      :height=>20, :width=>20,  :alt => "image") %>
+      <%= data[:change] %>
+    <% elsif data[:change] < 0 %>
+      <%= image_tag("http://www.iconsdb.com/icons/preview/red/down-circular-xxl.png",
+      :height=>20, :width=>20,  :alt => "image") %>
+      <%= data[:change] %>
+    <%end%>
   <%end%>
 </h2>
   
